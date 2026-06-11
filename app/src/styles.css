@@ -1,0 +1,693 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #d8d1c3;
+  color: #332f28;
+  font-synthesis: none;
+  line-height: 1.42;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "MonsterHunter";
+  src: url("./fonts/monsterhunter.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "MonsterHunterExpanded";
+  src: url("./fonts/monsterhunterexpand.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    linear-gradient(rgba(80, 72, 58, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80, 72, 58, 0.04) 1px, transparent 1px),
+    #d8d1c3;
+  background-size: 18px 18px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #eee8da;
+  border-right: 1px solid #b9ad95;
+  padding: 14px;
+}
+
+.side-panel {
+  background: #f8f3e8;
+  border: 1px solid #c8baa0;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.side-panel h2 {
+  background: #d8c9a9;
+  border-bottom: 1px solid #c0ae87;
+  font-family: "MonsterHunterExpanded", "MonsterHunter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin: 0;
+  padding: 7px 9px;
+  text-transform: uppercase;
+}
+
+.side-nav,
+.species-list {
+  display: grid;
+}
+
+.side-nav button,
+.species-list button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #e2d8c6;
+  color: #3b352c;
+  display: flex;
+  justify-content: space-between;
+  min-height: 30px;
+  padding: 6px 9px;
+  text-align: left;
+}
+
+.side-nav button:hover,
+.side-nav button.active,
+.species-list button:hover,
+.species-list button.active {
+  background: #53665d;
+  color: #fff7e6;
+}
+
+.side-nav span {
+  color: inherit;
+  font-size: 11px;
+  opacity: 0.78;
+}
+
+.species-list {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.art-panel {
+  background-position: center;
+  background-size: cover;
+  min-height: 116px;
+  position: relative;
+}
+
+.art-panel::before {
+  background: linear-gradient(90deg, rgba(27, 34, 30, 0.88), rgba(27, 34, 30, 0.24));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.art-panel div {
+  color: #fff5dc;
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  position: relative;
+}
+
+.site-title-panel {
+  min-height: 142px;
+}
+
+.site-title-panel div {
+  align-content: start;
+  justify-items: start;
+  min-height: 142px;
+}
+
+.site-title-panel strong {
+  color: #f9eed2;
+  font-family: "MonsterHunterExpanded", "MonsterHunter", Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.14;
+  text-shadow:
+    0 2px 0 rgba(42, 31, 17, 0.95),
+    0 0 8px rgba(0, 0, 0, 0.65);
+}
+.content {
+  min-width: 0;
+  padding: 18px 22px 32px;
+}
+
+.page-header {
+  align-items: end;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin: 0 auto 8px;
+  max-width: 1480px;
+}
+
+.breadcrumb {
+  color: #766d5d;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  color: #2f3834;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 1.08;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  color: #6f6658;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.index-filters {
+  align-items: end;
+  background: #eee8da;
+  border-bottom: 1px solid #c8baa0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(260px, 1fr) repeat(3, minmax(140px, 190px));
+  padding: 10px;
+}
+
+.search-field,
+.select-field {
+  display: grid;
+  gap: 4px;
+}
+
+.search-field {
+  align-items: center;
+  background: #fffaf0;
+  border: 1px solid #bfb197;
+  grid-template-columns: auto 1fr;
+  min-height: 34px;
+  padding: 0 8px;
+}
+
+.select-field span {
+  color: #655b4b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.select-field div {
+  align-items: center;
+  background: #fffaf0;
+  border: 1px solid #bfb197;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  min-height: 34px;
+  padding: 0 8px;
+}
+
+input,
+select {
+  background: transparent;
+  border: 0;
+  color: #332f28;
+  min-width: 0;
+  outline: 0;
+}
+
+select {
+  appearance: none;
+}
+
+.table-panel {
+  margin: 0 auto;
+  max-width: 1480px;
+}
+
+.table-panel,
+.detail-page,
+.section-table {
+  background: #f8f3e8;
+  border: 1px solid #c8baa0;
+  border-radius: 3px;
+  min-width: 0;
+}
+
+.table-panel {
+  overflow-x: clip;
+}
+
+.panel-title {
+  align-items: center;
+  background: #d8c9a9;
+  border-bottom: 1px solid #c0ae87;
+  display: flex;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 7px 9px;
+}
+
+.panel-title h2 {
+  align-items: center;
+  color: #3d372d;
+  display: flex;
+  font-family: "MonsterHunterExpanded", "MonsterHunter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  gap: 6px;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.panel-title span {
+  color: #6f6658;
+  font-size: 12px;
+}
+
+.monster-index {
+  max-height: calc(100vh - 156px);
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+.monster-index-header {
+  align-items: center;
+  background: #eee2cc;
+  border-bottom: 1px solid #d4c4a9;
+  color: #655b4b;
+  display: grid;
+  font-family: "MonsterHunterExpanded", "MonsterHunter", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  gap: 8px;
+  grid-template-columns: 30px minmax(150px, 1fr) minmax(100px, 0.55fr) minmax(120px, 0.7fr);
+  min-height: 28px;
+  padding: 5px 9px;
+  text-transform: uppercase;
+}
+
+.monster-row {
+  align-items: center;
+  background: #fffaf0;
+  border: 0;
+  border-bottom: 1px solid #e4d8c4;
+  color: #332f28;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 30px minmax(150px, 1fr) minmax(100px, 0.55fr) minmax(120px, 0.7fr);
+  min-height: 38px;
+  min-width: 0;
+  padding: 6px 9px;
+  text-align: left;
+  width: 100%;
+}
+
+.monster-row:hover,
+.monster-row.active {
+  background: #edf2ec;
+}
+
+.monster-row.active {
+  box-shadow: inset 4px 0 0 #4f675d;
+}
+
+.monster-name {
+  color: #27332e;
+  font-weight: 700;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.monster-row > span,
+.monster-index-header > span {
+  min-width: 0;
+}
+
+.monster-icon {
+  align-items: center;
+  background: #ece2ce;
+  border: 1px solid #b8a789;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2px;
+  width: 30px;
+}
+
+.monster-icon.size-large {
+  font-size: 20px;
+  height: 76px;
+  padding: 4px;
+  width: 76px;
+}
+
+.monster-icon img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.monster-icon:not(:has(img)).type-large {
+  background: #83583f;
+  color: #fff3dd;
+}
+
+.monster-icon:not(:has(img)).type-small {
+  background: #617b60;
+  color: #fff3dd;
+}
+
+.weakness-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.weakness-text {
+  background: #eee8da;
+  border: 1px solid #d2c4aa;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 5px;
+}
+
+.fire {
+  color: #c8482f;
+}
+
+.water {
+  color: #277ca6;
+}
+
+.thunder {
+  color: #b8860f;
+}
+
+.ice {
+  color: #4f9db1;
+}
+
+.dragon {
+  color: #7c58a7;
+}
+
+.detail-page {
+  min-width: 0;
+  padding: 12px;
+}
+
+.drawer {
+  background: #f8f3e8;
+  border-left: 1px solid #9f927a;
+  bottom: 0;
+  box-shadow: -18px 0 44px rgba(42, 34, 22, 0.24);
+  max-width: min(760px, calc(100vw - 28px));
+  overflow-y: auto;
+  padding-top: 42px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(102%);
+  transition: transform 180ms ease;
+  width: 760px;
+  z-index: 20;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-close {
+  background: #d8c9a9;
+  border: 1px solid #aa9978;
+  color: #332f28;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 28px;
+  padding: 4px 10px;
+  position: absolute;
+  right: 12px;
+  text-transform: uppercase;
+  top: 10px;
+}
+
+.monster-heading {
+  background: #fffaf0;
+  border: 1px solid #e1d6c3;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: auto 1fr;
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.monster-heading h2 {
+  color: #27332e;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.monster-heading p {
+  color: #5d5548;
+  margin-bottom: 0;
+}
+
+.facts {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.fact {
+  align-items: center;
+  background: #eee8da;
+  border: 1px solid #d4c8b2;
+  display: grid;
+  gap: 4px 7px;
+  grid-template-columns: auto 1fr;
+  min-width: 0;
+  padding: 8px;
+}
+
+.fact span {
+  color: #766d5d;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.fact strong {
+  grid-column: 1 / -1;
+  overflow-wrap: anywhere;
+}
+
+.section-table {
+  margin-top: 12px;
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd0ba;
+  padding: 7px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background: #eee2cc;
+  color: #3d372d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+td {
+  background: #fffaf0;
+}
+
+tbody tr:nth-child(even) td {
+  background: #f6efdf;
+}
+
+.weakness {
+  align-items: center;
+  color: #201c17;
+  display: inline-grid;
+  gap: 2px;
+  min-width: 72px;
+  padding: 5px;
+}
+
+.star-rating {
+  color: rgba(32, 28, 23, 0.35);
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 700;
+  gap: 1px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.star-rating .filled {
+  color: #201c17;
+}
+
+.star-rating.fire .filled {
+  color: #c8482f;
+}
+
+.star-rating.water .filled {
+  color: #277ca6;
+}
+
+.star-rating.thunder .filled {
+  color: #b8860f;
+}
+
+.star-rating.ice .filled {
+  color: #4f9db1;
+}
+
+.star-rating.dragon .filled {
+  color: #7c58a7;
+}
+
+.weakness small,
+.muted,
+.resist {
+  color: #766d5d;
+}
+
+.resist {
+  font-weight: 700;
+}
+
+.item-name {
+  color: #215f7d;
+  font-weight: 700;
+}
+
+.empty-state {
+  padding: 16px;
+}
+
+@media (max-width: 1180px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid #b9ad95;
+    border-right: 0;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-panel {
+    margin-bottom: 0;
+  }
+
+  .monster-index {
+    max-height: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .content {
+    order: 1;
+    padding: 14px;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .sidebar,
+  .index-filters,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .drawer {
+    max-width: 100vw;
+    width: 100vw;
+  }
+
+  .monster-row {
+    grid-template-columns: 30px 1fr;
+  }
+
+  .monster-index-header {
+    grid-template-columns: 30px 1fr;
+  }
+
+  .monster-index-header > span:nth-child(n + 3) {
+    display: none;
+  }
+
+  .monster-row > span:nth-child(n + 4),
+  .monster-row .weakness-summary {
+    display: none;
+  }
+}
