@@ -61,8 +61,7 @@ jobs:
             -backend-config="container_name=${{ secrets.TF_STATE_CONTAINER_NAME }}" \
             -backend-config="key=${{ secrets.TF_STATE_KEY }}" \
             -backend-config="use_oidc=true"
-            -backend-config="use_azuread_auth=true"
-
+            
       - name: Terraform validate
         run: terraform validate
 
