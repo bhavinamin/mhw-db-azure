@@ -24,7 +24,7 @@ env:
   ARM_USE_OIDC: "true"
   TF_IN_AUTOMATION: "true"
   TF_INPUT: "false"
-  TF_VAR_location: "eastus"
+  TF_VAR_location: "eastus2"
   TF_VAR_name: ${{ secrets.APP_NAME }}
 
 jobs:
@@ -61,7 +61,7 @@ jobs:
             -backend-config="container_name=${{ secrets.TF_STATE_CONTAINER_NAME }}" \
             -backend-config="key=${{ secrets.TF_STATE_KEY }}" \
             -backend-config="use_oidc=true"
-            
+
       - name: Terraform validate
         run: terraform validate
 
